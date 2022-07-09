@@ -30,6 +30,7 @@ class Controller:
         self.bottomLeft = False
         self.movesList = [[[] for i in range(3)] for i in range(3)]
         self.black = (0, 0, 0)
+        self.count = 0
 
         self.num = random.randint(1,2)
         if self.num == 1:
@@ -86,13 +87,16 @@ class Controller:
     def setUpGameOver(self, winner):
         self.gameOverScreen.fill(color = (255, 215, 0, 255))
         myFont = pygame.font.SysFont("impact", 60)
-        newFont = pygame.font.SysFont("impact", 60)
         if winner == 1:
             gameOverMsg = myFont.render("X's won the game!", False, self.black)
-        else:
+            self.gameOverScreen.blit(gameOverMsg, ((self.width / 3) - 100, self.height / 4))
+        elif winner == 2:
             gameOverMsg = myFont.render("O's won the game!", False, self.black)
-        self.gameOverScreen.blit(gameOverMsg, ((self.width / 3) - 100, self.height / 4))
-        extra_instructions = newFont.render("Press \'q'" " to quit", False, self.black)
+            self.gameOverScreen.blit(gameOverMsg, ((self.width / 3) - 100, self.height / 4))
+        else:
+            newMsg = myFont.render("No winner!", False, self.black)
+            self.gameOverScreen.blit(newMsg, ((self.width / 3), self.height / 4))
+        extra_instructions = myFont.render("Press \'q'" " to quit", False, self.black)
         self.gameOverScreen.blit(extra_instructions, ((self.width / 3) - 65, (self.height / 3) + 50))
         self.mainLoop()
 
@@ -114,6 +118,7 @@ class Controller:
                                 self.mid = True
                                 self.Xturn = False
                                 self.movesList[1][1] = 1
+                                self.count += 1
 
                         elif pygame.mouse.get_pos()[0] >= 200 and pygame.mouse.get_pos()[0] <= 460 and pygame.mouse.get_pos()[1] <= 200:
                             #midTop
@@ -125,6 +130,7 @@ class Controller:
                                 self.Xturn = False
                                 #1 for X, 2 for O
                                 self.movesList[1][0] = 1
+                                self.count += 1
 
                         elif pygame.mouse.get_pos()[0] >= 465 and (pygame.mouse.get_pos()[1] <= 460 and pygame.mouse.get_pos()[1] >= 200):
                             #midRight
@@ -135,6 +141,7 @@ class Controller:
                                 self.midRight = True
                                 self.Xturn = False
                                 self.movesList[2][1] = 1
+                                self.count += 1
 
                         elif pygame.mouse.get_pos()[0] <= 200 and pygame.mouse.get_pos()[1] <= 200:
                             #topLeft
@@ -145,6 +152,7 @@ class Controller:
                                 self.topLeft = True
                                 self.Xturn = False
                                 self.movesList[0][0] = 1
+                                self.count += 1
 
 
                         elif pygame.mouse.get_pos()[0] <= 200 and pygame.mouse.get_pos()[1] >= 200 and pygame.mouse.get_pos()[1] <= 460:
@@ -156,6 +164,7 @@ class Controller:
                                 self.midLeft = True
                                 self.Xturn = False
                                 self.movesList[0][1] = 1
+                                self.count += 1
 
                         elif pygame.mouse.get_pos()[0] <= 200 and pygame.mouse.get_pos()[1] >= 460 and pygame.mouse.get_pos()[1] <= 680:
                             #bottomLeft
@@ -166,6 +175,7 @@ class Controller:
                                 self.bottomLeft = True
                                 self.Xturn = False
                                 self.movesList[0][2] = 1
+                                self.count += 1
 
                         elif pygame.mouse.get_pos()[0] >= 465 and pygame.mouse.get_pos()[1] <= 200:
                             if self.topRight:
@@ -175,6 +185,7 @@ class Controller:
                                 self.topRight = True
                                 self.Xturn = False
                                 self.movesList[2][0] = 1
+                                self.count += 1
 
                         elif pygame.mouse.get_pos()[0] >= 460 and pygame.mouse.get_pos()[1] >= 460:
                             if self.bottomRight:
@@ -184,6 +195,7 @@ class Controller:
                                 self.bottomRight = True
                                 self.Xturn = False
                                 self.movesList[2][2] = 1
+                                self.count += 1
 
                         elif pygame.mouse.get_pos()[0] >= 200 and pygame.mouse.get_pos()[0] <= 460 and pygame.mouse.get_pos()[1] >= 460:
                             if self.midBottom:
@@ -193,6 +205,7 @@ class Controller:
                                 self.midBottom = True
                                 self.Xturn = False
                                 self.movesList[1][2] = 1
+                                self.count += 1
 
                     elif not self.Xturn:
                         if pygame.mouse.get_pos()[0] >= 200 and pygame.mouse.get_pos()[0] <= 460 and (pygame.mouse.get_pos()[1] <= 460 and pygame.mouse.get_pos()[1] >= 200):
@@ -204,6 +217,7 @@ class Controller:
                                 self.mid = True
                                 self.Xturn = True
                                 self.movesList[1][1] = 2
+                                self.count += 1
 
                         elif pygame.mouse.get_pos()[0] >= 200 and pygame.mouse.get_pos()[0] <= 460 and pygame.mouse.get_pos()[1] <= 200:
                             # midTop
@@ -214,6 +228,7 @@ class Controller:
                                 self.midTop = True
                                 self.Xturn = True
                                 self.movesList[1][0] = 2
+                                self.count += 1
 
                         elif pygame.mouse.get_pos()[0] >= 460 and (pygame.mouse.get_pos()[1] <= 400 and pygame.mouse.get_pos()[1] >= 200):
                             # midRight
@@ -224,6 +239,7 @@ class Controller:
                                 self.midRight = True
                                 self.Xturn = True
                                 self.movesList[2][1] = 2
+                                self.count += 1
 
                         elif pygame.mouse.get_pos()[0] <= 200 and pygame.mouse.get_pos()[1] <= 200:
                             # topLeft
@@ -234,6 +250,7 @@ class Controller:
                                 self.topLeft = True
                                 self.Xturn = True
                                 self.movesList[0][0] = 2
+                                self.count += 1
 
 
                         elif pygame.mouse.get_pos()[0] <= 200 and pygame.mouse.get_pos()[1] >= 240 and pygame.mouse.get_pos()[1] <= 460:
@@ -245,6 +262,7 @@ class Controller:
                                 self.midLeft = True
                                 self.Xturn = True
                                 self.movesList[0][1] = 2
+                                self.count += 1
 
                         elif pygame.mouse.get_pos()[0] <= 200 and pygame.mouse.get_pos()[1] >= 460 and pygame.mouse.get_pos()[1] <= 680:
                             # bottomLeft
@@ -255,6 +273,7 @@ class Controller:
                                 self.bottomLeft = True
                                 self.Xturn = True
                                 self.movesList[0][2] = 2
+                                self.count += 1
 
                         elif pygame.mouse.get_pos()[0] >= 465 and pygame.mouse.get_pos()[1] <= 200:
                             if self.topRight:
@@ -264,6 +283,7 @@ class Controller:
                                 self.topRight = True
                                 self.Xturn = True
                                 self.movesList[2][0] = 2
+                                self.count += 1
 
                         elif pygame.mouse.get_pos()[0] >= 460 and pygame.mouse.get_pos()[1] >= 460:
                             if self.bottomRight:
@@ -273,6 +293,7 @@ class Controller:
                                 self.bottomRight = True
                                 self.Xturn = True
                                 self.movesList[2][2] = 1
+                                self.count += 1
 
                         elif pygame.mouse.get_pos()[0] >= 200 and pygame.mouse.get_pos()[0] <= 460 and pygame.mouse.get_pos()[1] >= 460:
                             if self.midBottom:
@@ -282,6 +303,7 @@ class Controller:
                                 self.midBottom = True
                                 self.Xturn = True
                                 self.movesList[1][2] = 2
+                                self.count += 1
 
                 elif self.num == 2:
                     if not self.Xturn:
@@ -295,6 +317,7 @@ class Controller:
                                 self.mid = True
                                 self.Xturn = True
                                 self.movesList[1][1] = 2
+                                self.count += 1
 
                         elif pygame.mouse.get_pos()[0] >= 200 and pygame.mouse.get_pos()[0] <= 460 and pygame.mouse.get_pos()[1] <= 200:
                             # midTop
@@ -305,6 +328,7 @@ class Controller:
                                 self.midTop = True
                                 self.Xturn = True
                                 self.movesList[1][0] = 2
+                                self.count += 1
 
                         elif pygame.mouse.get_pos()[0] >= 460 and (pygame.mouse.get_pos()[1] <= 400 and pygame.mouse.get_pos()[1] >= 200):
                             # midRight
@@ -315,6 +339,7 @@ class Controller:
                                 self.midRight = True
                                 self.Xturn = True
                                 self.movesList[2][1] = 2
+                                self.count += 1
 
                         elif pygame.mouse.get_pos()[0] <= 200 and pygame.mouse.get_pos()[1] <= 200:
                             # topLeft
@@ -325,6 +350,7 @@ class Controller:
                                 self.topLeft = True
                                 self.Xturn = True
                                 self.movesList[0][0] = 2
+                                self.count += 1
 
 
                         elif pygame.mouse.get_pos()[0] <= 200 and pygame.mouse.get_pos()[1] >= 240 and pygame.mouse.get_pos()[1] <= 460:
@@ -336,6 +362,7 @@ class Controller:
                                 self.midLeft = True
                                 self.Xturn = True
                                 self.movesList[0][1] = 2
+                                self.count += 1
 
                         elif pygame.mouse.get_pos()[0] <= 200 and pygame.mouse.get_pos()[1] >= 460 and pygame.mouse.get_pos()[1] <= 680:
                             # bottomLeft
@@ -346,6 +373,7 @@ class Controller:
                                 self.bottomLeft = True
                                 self.Xturn = True
                                 self.movesList[0][2] = 2
+                                self.count += 1
 
                         elif pygame.mouse.get_pos()[0] >= 465 and pygame.mouse.get_pos()[1] <= 200:
                             if self.topRight:
@@ -355,6 +383,7 @@ class Controller:
                                 self.topRight = True
                                 self.Xturn = True
                                 self.movesList[2][0] = 2
+                                self.count += 1
 
                         elif pygame.mouse.get_pos()[0] >= 460 and pygame.mouse.get_pos()[1] >= 460:
                             if self.bottomRight:
@@ -364,6 +393,7 @@ class Controller:
                                 self.bottomRight = True
                                 self.Xturn = True
                                 self.movesList[2][2] = 2
+                                self.count += 1
 
                         elif pygame.mouse.get_pos()[0] >= 200 and pygame.mouse.get_pos()[0] <= 460 and pygame.mouse.get_pos()[1] >= 460:
                             if self.midBottom:
@@ -373,6 +403,7 @@ class Controller:
                                 self.midBottom = True
                                 self.Xturn = True
                                 self.movesList[1][2] = 2
+                                self.count += 1
                     elif self.Xturn:
                         if pygame.mouse.get_pos()[0] >= 200 and pygame.mouse.get_pos()[0] <= 460 and (pygame.mouse.get_pos()[1] <= 460 and pygame.mouse.get_pos()[1] >= 200):
                             #mid
@@ -383,6 +414,7 @@ class Controller:
                                 self.mid = True
                                 self.Xturn = False
                                 self.movesList[1][1] = 1
+                                self.count += 1
 
                         elif pygame.mouse.get_pos()[0] >= 200 and pygame.mouse.get_pos()[0] <= 460 and pygame.mouse.get_pos()[1] <= 200:
                             #midTop
@@ -393,6 +425,7 @@ class Controller:
                                 self.midTop = True
                                 self.Xturn = False
                                 self.movesList[1][0] = 1
+                                self.count += 1
 
                         elif pygame.mouse.get_pos()[0] >= 465 and (pygame.mouse.get_pos()[1] <= 460 and pygame.mouse.get_pos()[1] >= 200):
                             #midRight
@@ -403,6 +436,7 @@ class Controller:
                                 self.midRight = True
                                 self.Xturn = False
                                 self.movesList[2][1] = 1
+                                self.count += 1
 
                         elif pygame.mouse.get_pos()[0] <= 200 and pygame.mouse.get_pos()[1] <= 200:
                             #topLeft
@@ -413,6 +447,7 @@ class Controller:
                                 self.topLeft = True
                                 self.Xturn = False
                                 self.movesList[0][0] = 1
+                                self.count += 1
 
 
                         elif pygame.mouse.get_pos()[0] <= 200 and pygame.mouse.get_pos()[1] >= 200 and pygame.mouse.get_pos()[1] <= 460:
@@ -424,6 +459,7 @@ class Controller:
                                 self.midLeft = True
                                 self.Xturn = False
                                 self.movesList[0][1] = 1
+                                self.count += 1
 
                         elif pygame.mouse.get_pos()[0] <= 200 and pygame.mouse.get_pos()[1] >= 460 and pygame.mouse.get_pos()[1] <= 680:
                             #bottomLeft
@@ -434,6 +470,7 @@ class Controller:
                                 self.bottomLeft = True
                                 self.Xturn = False
                                 self.movesList[0][2] = 1
+                                self.count += 1
 
                         elif pygame.mouse.get_pos()[0] >= 465 and pygame.mouse.get_pos()[1] <= 200:
                             if self.topRight:
@@ -443,6 +480,7 @@ class Controller:
                                 self.topRight = True
                                 self.Xturn = False
                                 self.movesList[2][0] = 1
+                                self.count += 1
 
                         elif pygame.mouse.get_pos()[0] >= 460 and pygame.mouse.get_pos()[1] >= 460:
                             if self.bottomRight:
@@ -452,6 +490,7 @@ class Controller:
                                 self.bottomRight = True
                                 self.Xturn = False
                                 self.movesList[2][2] = 1
+                                self.count += 1
 
                         elif pygame.mouse.get_pos()[0] >= 200 and pygame.mouse.get_pos()[0] <= 460 and pygame.mouse.get_pos()[1] >= 460:
                             if self.midBottom:
@@ -461,11 +500,15 @@ class Controller:
                                 self.midBottom = True
                                 self.Xturn = False
                                 self.movesList[1][2] = 1
+                                self.count += 1
 
 
         #print(str(pygame.mouse.get_pos()[0]) + ", " + str(pygame.mouse.get_pos()[1]))
         pygame.display.update()
-        if self.movesList[0][0] == 1 and self.movesList[0][1] == 1 and self.movesList[0][2] == 1:
+        if self.count == 9:
+            self.state = "END"
+            self.setUpGameOver((3))
+        elif self.movesList[0][0] == 1 and self.movesList[0][1] == 1 and self.movesList[0][2] == 1:
             self.state = "END"
             self.setUpGameOver(1)
 
