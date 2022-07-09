@@ -1,7 +1,6 @@
 import sys
 import pygame
 import random
-from src import types
 
 class Controller:
     def __init__(self, width = 680, height = 780):
