@@ -30,6 +30,8 @@ class Controller:
         self.movesList = [[[] for i in range(3)] for i in range(3)]
         self.black = (0, 0, 0)
         self.count = 0
+        self.won = True
+        self.winner = ""
 
         self.num = random.randint(1,2)
         if self.num == 1:
@@ -45,8 +47,6 @@ class Controller:
                 self.gameLoop()
             elif self.state == "END":
                 self.gameOver()
-            else:
-                self.updateEveything()
 
 
     def gameIntro(self):
