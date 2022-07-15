@@ -505,83 +505,83 @@ class Controller:
 
         #print(str(pygame.mouse.get_pos()[0]) + ", " + str(pygame.mouse.get_pos()[1]))
         pygame.display.update()
-        if self.movesList[0][0] == 1 and self.movesList[0][1] == 1 and self.movesList[0][2] == 1:
+        if self.movesList[0][0] == 1.0 and self.movesList[0][1] == 1.0 and self.movesList[0][2] == 1.0:
             self.state = "END"
             self.won = True
             self.setUpGameOver(1)
 
-        elif self.movesList[0][0] == 1 and self.movesList[1][1] == 1 and self.movesList[2][2] == 1:
+        elif self.movesList[0][0] == 1.0 and self.movesList[1][1] == 1.0 and self.movesList[2][2] == 1.0:
             self.state = "END"
             self.won = True
             self.setUpGameOver(1)
 
-        elif self.movesList[0][0] == 1 and self.movesList[1][0] == 1 and self.movesList[2][0] == 1:
+        elif self.movesList[0][0] == 1.0 and self.movesList[1][0] == 1.0 and self.movesList[2][0] == 1.0:
             self.state = "END"
             self.won = True
             self.setUpGameOver(1)
 
-        elif self.movesList[0][2] == 1 and self.movesList[1][1] == 1 and self.movesList[2][0] == 1:
+        elif self.movesList[0][2] == 1.0 and self.movesList[1][1] == 1.0 and self.movesList[2][0] == 1.0:
             self.state = "END"
             self.won = True
             self.setUpGameOver(1)
 
-        elif self.movesList[0][2] == 1 and self.movesList[1][2] == 1 and self.movesList[2][2] == 1:
+        elif self.movesList[0][2] == 1.0 and self.movesList[1][2] == 1.0 and self.movesList[2][2] == 1.0:
             self.state = "END"
             self.won = True
             self.setUpGameOver(1)
 
-        elif self.movesList[2][0] == 1 and self.movesList[2][1] == 1 and self.movesList[2][2] == 1:
+        elif self.movesList[2][0] == 1.0 and self.movesList[2][1] == 1.0 and self.movesList[2][2] == 1.0:
             self.state = "END"
             self.won = True
             self.setUpGameOver(1)
 
-        elif self.movesList[1][0] == 1 and self.movesList[1][1] == 1 and self.movesList[1][2] == 1:
+        elif self.movesList[1][0] == 1.0 and self.movesList[1][1] == 1.0 and self.movesList[1][2] == 1.0:
             self.state = "END"
             self.won = True
             self.setUpGameOver(1)
 
-        elif self.movesList[0][1] == 1 and self.movesList[1][1] == 1 and self.movesList[2][1] == 1:
+        elif self.movesList[0][1] == 1.0 and self.movesList[1][1] == 1.0 and self.movesList[2][1] == 1.0:
             self.state = "END"
             self.won = True
             self.setUpGameOver(1)
 
-        elif self.movesList[0][0] == 2 and self.movesList[0][1] == 2 and self.movesList[0][2] == 2:
+        elif self.movesList[0][0] == 2.0 and self.movesList[0][1] == 2.0 and self.movesList[0][2] == 2.0:
             self.state = "END"
             self.won = True
             self.setUpGameOver(2)
 
-        elif self.movesList[0][0] == 2 and self.movesList[1][1] == 2 and self.movesList[2][2] == 2:
+        elif self.movesList[0][0] == 2.0 and self.movesList[1][1] == 2.0 and self.movesList[2][2] == 2.0:
             self.state = "END"
             self.won = True
             self.setUpGameOver(2)
 
 
-        elif self.movesList[0][0] == 2 and self.movesList[1][0] == 2 and self.movesList[2][0] == 2:
+        elif self.movesList[0][0] == 2.0 and self.movesList[1][0] == 2.0 and self.movesList[2][0] == 2.0:
             self.state = "END"
             self.won = True
             self.setUpGameOver(2)
 
-        elif self.movesList[0][2] == 2 and self.movesList[1][1] == 2 and self.movesList[2][0] == 2:
+        elif self.movesList[0][2] == 2.0 and self.movesList[1][1] == 2.0 and self.movesList[2][0] == 2.0:
             self.state = "END"
             self.won = True
             self.setUpGameOver(2)
 
-        elif self.movesList[0][2] == 2 and self.movesList[1][2] == 2 and self.movesList[2][2] == 2:
+        elif self.movesList[0][2] == 2.0 and self.movesList[1][2] == 2.0 and self.movesList[2][2] == 2.0:
             self.state = "END"
             self.won = True
             self.setUpGameOver(2)
 
-        elif self.movesList[2][0] == 2 and self.movesList[2][1] == 2 and self.movesList[2][2] == 2:
+        elif self.movesList[2][0] == 2.0 and self.movesList[2][1] == 2.0 and self.movesList[2][2] == 2.0:
             self.state = "END"
             self.won = True
             self.setUpGameOver(2)
 
-        elif self.movesList[1][0] == 2 and self.movesList[1][1] == 2 and self.movesList[1][2] == 2:
+        elif self.movesList[1][0] == 2.0 and self.movesList[1][1] == 2.0 and self.movesList[1][2] == 2.0:
             self.state = "END"
             self.won = True
             self.setUpGameOver(2)
 
-        elif self.movesList[0][1] == 2 and self.movesList[1][1] == 2 and self.movesList[2][1] == 2:
+        elif self.movesList[0][1] == 2.0 and self.movesList[1][1] == 2.0 and self.movesList[2][1] == 2.0:
             self.state = "END"
             self.won = True
             self.setUpGameOver(2)
@@ -599,5 +599,3 @@ class Controller:
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_q:
                     sys.exit()
-
-
