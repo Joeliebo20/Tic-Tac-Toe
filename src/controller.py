@@ -292,7 +292,7 @@ class Controller:
                                 self.game_screen.blit(self.O, (480, 480))
                                 self.bottomRight = True
                                 self.Xturn = True
-                                self.movesList[2][2] = 1
+                                self.movesList[2][2] = 2
                                 self.count += 1
 
                         elif pygame.mouse.get_pos()[0] >= 200 and pygame.mouse.get_pos()[0] <= 460 and pygame.mouse.get_pos()[1] >= 460:
